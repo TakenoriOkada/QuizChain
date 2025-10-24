@@ -1,0 +1,33 @@
+{
+  "name": "quizchain-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run genabi && next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "genabi": "node ./scripts/genabi.mjs",
+    "ishhrunning": "node ./scripts/is-hardhat-node-running.mjs"
+  },
+  "dependencies": {
+    "@zama-fhe/relayer-sdk": "0.2.0",
+    "ethers": "^6.13.2",
+    "framer-motion": "^11.18.2",
+    "idb": "^8.0.3",
+    "next": "^15.4.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@fhevm/mock-utils": "0.1.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
+
+
