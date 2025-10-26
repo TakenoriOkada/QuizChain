@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "question": "以太坊的创始人是谁？",
+    "options": ["Vitalik Buterin", "Elon Musk", "Satoshi Nakamoto", "CZ"],
+    "answer": "Vitalik Buterin"
+  },
+  {
+    "id": 2,
+    "question": "区块链中用于汇总并验证交易哈希的结构是？",
+    "options": ["Merkle Tree", "AVL Tree", "B+ Tree", "Heap"],
+    "answer": "Merkle Tree"
+  },
+  {
+    "id": 3,
+    "question": "FHEVM 的核心能力是？",
+    "options": ["在密文上做计算", "更快的 PoW", "跨链桥", "中心化数据库"],
+    "answer": "在密文上做计算"
+  }
+]
+
+
+
