@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/toolboxb/Desktop/ZAMA/%E5%8D%81%E6%9C%88%E9%A1%B9%E7%9B%AE/%E7%AD%94%E9%A2%98%E6%B8%B8%E6%88%8F/action/quizchain/site/app/layout.tsx"],"sourcesContent":["import \"./globals.css\";\nexport default function RootLayout({ children }: { children: React.ReactNode }) {\n  return (\n    <html lang=\"en\">\n      <body>{children}</body>\n    </html>\n  );\n}\n\n\n"],"names":[],"mappings":";;;;;;;AACe,SAAS,WAAW,EAAE,QAAQ,EAAiC;IAC5E,qBACE,8OAAC;QAAK,MAAK;kBACT,cAAA,8OAAC;sBAAM;;;;;;;;;;;AAGb","debugId":null}},
+    {"offset": {"line": 31, "column": 0}, "map": {"version":3,"sources":["file:///Users/toolboxb/Desktop/ZAMA/%E5%8D%81%E6%9C%88%E9%A1%B9%E7%9B%AE/%E7%AD%94%E9%A2%98%E6%B8%B8%E6%88%8F/action/quizchain/site/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = (\n  require('../../module.compiled') as typeof import('../../module.compiled')\n).vendored['react-rsc']!.ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":"AAAAA,OAAOC,OAAO,GACZC,QAAQ,4HACRC,QAAQ,CAAC,YAAY,CAAEC,kBAAkB","ignoreList":[0],"debugId":null}}]
+}
