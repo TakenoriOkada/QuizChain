@@ -3,9 +3,9 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import { useQuizChain } from "../../hooks/useQuizChain";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
-export default function QuizPage() {
+function QuizPageContent() {
   const router = useRouter();
   const params = useSearchParams();
   const cid = params?.get("cid") ?? "";
@@ -179,7 +179,7 @@ export default function QuizPage() {
             </div>
           </div>
 
-          {qz.scoreClear && qz.scoreClear >= 100 && (
+          {qz.scoreClear && Number(qz.scoreClear) >= 100 && (
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -331,6 +331,14 @@ export default function QuizPage() {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+export default function QuizPage() {
+  return (
+    <Suspense fallback={<div style={{minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>Loading…</div>}>
+      <QuizPageContent />
+    </Suspense>
   );
 }
 

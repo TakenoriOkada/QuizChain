@@ -50,8 +50,10 @@ export default function RankPage() {
       const scoreMap = new Map<string, bigint>();
       for (const a of addrs) scoreMap.set(a.toLowerCase(), 0n);
       for (const l of logs) {
-        const user: string = l.args[0];
-        const correct: boolean = l.args[2];
+        const args: any = (l as any).args;
+        if (!args) continue;
+        const user: string = args[0] as string;
+        const correct: boolean = args[2] as boolean;
         const key = user.toLowerCase();
         if (!scoreMap.has(key)) continue;
         if (correct) scoreMap.set(key, (scoreMap.get(key) ?? 0n) + 10n);

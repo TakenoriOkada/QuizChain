@@ -1,0 +1,61 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "quizchain/site/**"
+      - ".github/workflows/pages.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: quizchain/site/package-lock.json
+
+      - name: Install dependencies
+        working-directory: quizchain/site
+        run: npm ci --no-audit --no-fund
+
+      - name: Disable Next telemetry
+        working-directory: quizchain/site
+        run: npx next telemetry disable
+
+      - name: Build static site
+        working-directory: quizchain/site
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quizchain/site/out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+

@@ -74,7 +74,7 @@ type ResolveResult =
 async function resolve(providerOrUrl: Eip1193Provider | string, mockChains?: Record<number, string>): Promise<ResolveResult> {
   const chainId = await getChainId(providerOrUrl);
   let rpcUrl = typeof providerOrUrl === "string" ? providerOrUrl : undefined;
-  const defaults = { 31337: "http://localhost:8545", ...(mockChains ?? {}) };
+  const defaults: Record<number, string> = { 31337: "http://localhost:8545", ...(mockChains ?? {}) };
   if (Object.hasOwn(defaults, chainId)) {
     if (!rpcUrl) rpcUrl = defaults[chainId];
     return { isMock: true, chainId, rpcUrl: rpcUrl! };

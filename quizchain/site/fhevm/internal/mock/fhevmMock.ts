@@ -24,7 +24,7 @@ export const fhevmMockCreateInstance = async (parameters: {
     verifyingContractAddressDecryption: "0x5ffdaAB0373E62E2ea2944776209aEf29E631A64",
     verifyingContractAddressInputVerification: "0x812b06e1CDCE800494b79fFE4f925A504a9A9810",
   });
-  return instance;
+  return instance as unknown as FhevmInstance;
 };
 
 
